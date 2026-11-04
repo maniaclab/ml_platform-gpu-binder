@@ -1,15 +1,15 @@
 github_url = "https://github.com/maniaclab/ml_platform-gpu-binder/"
 
 [version]
-current = "0.0.0"
+current = "0000.00.00"
 
 # Versions match the ml_platform CalVer release (YYYY.M.D) being wrapped.
 regex = '''
-  (?P<year>\d+)
+  (?P<year>\d{4})
   \.
-  (?P<month>\d+)
+  (?P<month>\d{1,2})
   \.
-  (?P<day>\d+)
+  (?P<day>\d{1,2})
   '''
 
 [git]
