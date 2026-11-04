@@ -1,0 +1,15 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["dockerfile"],
+  "dependencyDashboard": false,
+  "packageRules": [
+    {
+      "description": "Follow ml_platform main: merge every :latest digest bump straight to main so BinderHub sees a new commit.",
+      "matchManagers": ["dockerfile"],
+      "matchUpdateTypes": ["digest"],
+      "automerge": true,
+      "automergeType": "branch"
+    }
+  ]
+}

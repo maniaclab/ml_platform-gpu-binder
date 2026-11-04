@@ -1,0 +1,30 @@
+github_url = "https://github.com/maniaclab/ml_platform-gpu-binder/"
+
+[version]
+current = "0.0.0"
+
+# Versions match the ml_platform CalVer release (YYYY.M.D) being wrapped.
+regex = '''
+  (?P<year>\d+)
+  \.
+  (?P<month>\d+)
+  \.
+  (?P<day>\d+)
+  '''
+
+[git]
+message_template = "Release {new_version}"
+tag_template = "v{new_version}"
+
+[[file]]
+src = "pixi.toml"
+search = 'version = "{current_version}"'
+
+[[file]]
+src = "tbump.toml"
+search = 'current = "{current_version}"'
+
+# Pin the base image to the ml_platform release being tagged, with its digest.
+[[before_commit]]
+name = "pin base image"
+cmd = "python scripts/pin_base.py {new_version}"
