@@ -3,7 +3,9 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [main]
+    # renovate/** too: digest bumps are branch-automerged, and Renovate only
+    # merges a branch whose checks have passed.
+    branches: [main, "renovate/**"]
 
 permissions:
   contents: read
